@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google"
+import {ClerkProvider} from "@clerk/nextjs"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
 
@@ -23,7 +23,11 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+          <ClerkProvider>{children}</ClerkProvider>
+
+  
+        
+        
       </body>
     </html>
   )
